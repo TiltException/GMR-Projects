@@ -49,9 +49,14 @@ namespace MiguelDrawing
             gfx.Clear(BackColor);
             ball.Draw(gfx);
 
-            if (ball.Xpos < 0 || ball.Xpos >= drawingBox.Width)
+            if (ball.Xpos < 0 || ball.Xpos + ball.Diameter >= drawingBox.Width)
             {
                 ball.xSpeed *= -1;
+            }
+
+            if(ball.Ypos < 0 || ball.Ypos + ball.Diameter >= drawingBox.Height)
+            {
+                ball.ySpeed *= -1;
             }
 
             ball.Xpos += ball.xSpeed;

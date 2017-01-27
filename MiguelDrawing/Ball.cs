@@ -12,7 +12,7 @@ namespace MiguelDrawing
         
         public int Xpos { get; set; }
         public int Ypos { get; set; }
-        public int Radius { get; set; }
+        public int Diameter { get; set; }
         public int xSpeed { get; set; }
         public int ySpeed { get; set; }
         private Brush color;
@@ -21,13 +21,13 @@ namespace MiguelDrawing
         {
             Xpos = Ypos = 0;
             color = Brushes.Red;
-            Radius = 50;
+            Diameter = 50;
             xSpeed = 1;
             ySpeed = 1;
         }
         public void Draw(Graphics gfx)
         {     
-            gfx.FillEllipse(color, Xpos, Ypos, Radius, Radius);
+            gfx.FillEllipse(color, Xpos, Ypos, Diameter, Diameter);
         }
 
     }
