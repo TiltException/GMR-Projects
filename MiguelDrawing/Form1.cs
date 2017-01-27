@@ -26,21 +26,6 @@ namespace MiguelDrawing
             bitmap = new Bitmap(drawingBox.Width, drawingBox.Height);
             gfx = Graphics.FromImage(bitmap);
             ball = new Ball();
-            while (true)
-            {
-                
-                ball.Draw(gfx);
-                drawingBox.Image = bitmap;
-                drawingBox.Image = null;
-
-                if (ball.Xpos <= 0 || ball.Xpos >= drawingBox.Width)
-                {
-                    ball.xSpeed *= -1;
-                }
-
-                ball.Xpos += ball.xSpeed;
-                ball.Ypos += ball.ySpeed;
-            }
             
         }
 
@@ -52,6 +37,27 @@ namespace MiguelDrawing
             }
             return false;
             
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drawTimer_Tick(object sender, EventArgs e)
+        {
+            gfx.Clear(BackColor);
+            ball.Draw(gfx);
+
+            if (ball.Xpos < 0 || ball.Xpos >= drawingBox.Width)
+            {
+                ball.xSpeed *= -1;
+            }
+
+            ball.Xpos += ball.xSpeed;
+            ball.Ypos += ball.ySpeed;
+
+            drawingBox.Image = bitmap;
         }
     }
 }

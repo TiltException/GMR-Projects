@@ -49,6 +49,7 @@
             // 
             this.drawTimer.Enabled = true;
             this.drawTimer.Interval = 17;
+            this.drawTimer.Tick += new System.EventHandler(this.drawTimer_Tick);
             // 
             // Form1
             // 
@@ -61,6 +62,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.drawingBox)).EndInit();
             this.ResumeLayout(false);
 
