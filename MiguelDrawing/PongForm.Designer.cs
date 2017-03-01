@@ -1,6 +1,6 @@
 ﻿namespace MiguelDrawing
 {
-    partial class Form1
+    partial class PongForm
     {
         /// <summary>
         /// Required designer variable.
@@ -61,9 +61,9 @@
             this.Controls.Add(this.drawingBox);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Shown += new System.EventHandler(this.Form1_Shown);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.Load += new System.EventHandler(this.PongForm_Load);
+            this.Shown += new System.EventHandler(this.PongForm_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PongForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.drawingBox)).EndInit();
             this.ResumeLayout(false);
 

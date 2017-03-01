@@ -10,26 +10,26 @@ using System.Windows.Forms;
 
 namespace MiguelDrawing
 {
-    public partial class Form1 : Form
+    public partial class PongForm : Form
     {
 
         private Bitmap bitmap;
         private Graphics gfx;
         private Ball ball;
-        private Paddle paddle1;
-        private Paddle paddle2;
+        private Paddle leftPaddle;
+        private Paddle rightPaddle;
 
-        public Form1()
+        public PongForm()
         {
             InitializeComponent();
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void PongForm_Load(object sender, EventArgs e)
         {
             bitmap = new Bitmap(drawingBox.Width, drawingBox.Height);
             gfx = Graphics.FromImage(bitmap);
             ball = new Ball();
-            paddle1 = new Paddle(null);
-            paddle2 = new Paddle(null);
+            leftPaddle = new Paddle(null);
+            rightPaddle = new Paddle(null, drawingBox.Right - 70, 10, 25, 125, 0, 2);
         }
 
         static bool mouseIsClicked()
@@ -42,7 +42,7 @@ namespace MiguelDrawing
             
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
+        private void PongForm_Shown(object sender, EventArgs e)
         {
 
         }
@@ -51,8 +51,8 @@ namespace MiguelDrawing
         {
             gfx.Clear(BackColor);
             ball.Draw(gfx);
-            paddle1.Draw(gfx);
-            paddle2.Draw(gfx);
+            leftPaddle.Draw(gfx);
+            rightPaddle.Draw(gfx);
 
             if (ball.Xpos < 0 || ball.Xpos + ball.Diameter >= drawingBox.Width)
             {
@@ -70,15 +70,15 @@ namespace MiguelDrawing
             drawingBox.Image = bitmap;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void PongForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
             {
-                paddle1.Ypos -= paddle1.YSpeed;
+                leftPaddle.Ypos -= leftPaddle.YSpeed;
             }
             if (e.KeyCode == Keys.Down)
             {
-                paddle1.Ypos += paddle1.YSpeed;
+                leftPaddle.Ypos += leftPaddle.YSpeed;
             }
         }
     }

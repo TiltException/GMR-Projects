@@ -9,26 +9,37 @@ namespace MiguelDrawing
 {
     public class Ball
     {
+        public Point Position { get; set; }
+        public Point Speed { get; set; }
         
-        public int Xpos { get; set; }
-        public int Ypos { get; set; }
         public int Diameter { get; set; }
-        public int xSpeed { get; set; }
-        public int ySpeed { get; set; }
+
         private Brush color;
-       
-        public Ball()
+
+        public Ball(int x, int y, int diameter, Brush color, int xSpeed, int ySpeed)
+            : this(new Point(x, y), diameter, color, new Point(xSpeed, ySpeed))
         {
-            Xpos = Ypos = 0;
-            color = Brushes.Red;
-            Diameter = 50;
-            xSpeed = 1;
-            ySpeed = 1;
+            //Pass-through ctor
         }
-        public void Draw(Graphics gfx)
-        {     
-            gfx.FillEllipse(color, Xpos, Ypos, Diameter, Diameter);
+
+       
+        public Ball(Point position, int diameter, Brush color, Point speed)
+        {
+            Position = position;
+            this.color = color;
+            Diameter = diameter;
+            Speed = speed;
         }
+
+        public virtual void Draw(Graphics gfx)
+        {
+
+        }
+
+        //public void Draw(Graphics gfx)
+        //{     
+        //    gfx.FillEllipse(color, Position.X, Position.Y, Diameter, Diameter);
+        //}
 
     }
 }
