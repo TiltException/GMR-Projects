@@ -51,7 +51,7 @@
             this.drawTimer.Interval = 17;
             this.drawTimer.Tick += new System.EventHandler(this.drawTimer_Tick);
             // 
-            // Form1
+            // PongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -59,7 +59,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(884, 582);
             this.Controls.Add(this.drawingBox);
-            this.Name = "Form1";
+            this.Name = "PongForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.PongForm_Load);
             this.Shown += new System.EventHandler(this.PongForm_Shown);

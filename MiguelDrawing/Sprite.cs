@@ -13,7 +13,7 @@ namespace MiguelDrawing
         {
             get
             {
-                return new Rectangle(Position, size);
+                return new Rectangle(Position, Size);
             }
         }
 
@@ -46,21 +46,21 @@ namespace MiguelDrawing
         //}
         #endregion alternativeImplementation
 
-        private Size size;
+        public Size Size;
 
-        private Brush color;
+        public Brush Color;
 
 
-        public Sprite(int x = 0, int y = 0, int xSpeed = 0, int ySpeed = 0, int height = 1, int width = 1, Brush color = null)
-            : this(new Point(x, y), new Point(xSpeed, ySpeed), new Size(height, width), color)
+        public Sprite(int x = 0, int y = 0, int width = 1, int height = 1, Brush color = null)
+            : this(new Point(x,y), new Size(width, height), color)
         {
         }
-        public Sprite(Point position, Point speed, Size size, Brush color)
+
+        public Sprite(Point position, Size size, Brush color)
         {
             Position = position;
-            Speed = speed;
-            this.size = size;
-            this.color = color;
+            Size = size;
+            Color = color;
         }
     }
 }

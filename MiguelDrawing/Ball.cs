@@ -7,15 +7,8 @@ using System.Threading.Tasks;
 
 namespace MiguelDrawing
 {
-    public class Ball
+    public class Ball : MovingSprite
     {
-        public Point Position { get; set; }
-        public Point Speed { get; set; }
-        
-        public int Diameter { get; set; }
-
-        private Brush color;
-
         public Ball(int x, int y, int diameter, Brush color, int xSpeed, int ySpeed)
             : this(new Point(x, y), diameter, color, new Point(xSpeed, ySpeed))
         {
@@ -24,16 +17,14 @@ namespace MiguelDrawing
 
        
         public Ball(Point position, int diameter, Brush color, Point speed)
+            : base(position, new Size(diameter, diameter), color)
         {
-            Position = position;
-            this.color = color;
-            Diameter = diameter;
-            Speed = speed;
+
         }
 
-        public virtual void Draw(Graphics gfx)
+        public override void Draw(Graphics gfx)
         {
-
+            gfx.FillEllipse(Color, Position.X, Position.Y, Size.Width, Size.Height);
         }
 
         //public void Draw(Graphics gfx)

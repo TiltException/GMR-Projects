@@ -56,6 +56,7 @@
     <Compile Include="Paddle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprite.cs" />
     <EmbeddedResource Include="PongForm.resx">
       <DependentUpon>PongForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -27,9 +27,9 @@ namespace MiguelDrawing
         {
             bitmap = new Bitmap(drawingBox.Width, drawingBox.Height);
             gfx = Graphics.FromImage(bitmap);
-            ball = new Ball();
-            leftPaddle = new Paddle(null);
-            rightPaddle = new Paddle(null, drawingBox.Right - 70, 10, 25, 125, 0, 2);
+            ball = new Ball(50, 50, 15, null, 2, 2);
+            leftPaddle = new Paddle(30, 20, 30, 150, 0, 2, Brushes.Red);
+            rightPaddle = new Paddle(drawingBox.Right - 70, 10, 25, 125, 0, 2, Brushes.Blue);
         }
 
         static bool mouseIsClicked()
