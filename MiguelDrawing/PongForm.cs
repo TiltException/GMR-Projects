@@ -63,7 +63,7 @@ namespace MiguelDrawing
                 ball.Speed = new Point(ball.Speed.X, ball.Speed.Y * -1);
             }
 
-            if (rightPaddle.Position.Y > drawingBox.Top && rightPaddle.Position.Y + rightPaddle.Size.Height < drawingBox.Bottom)
+            if (rightPaddle.Position.Y > 0 && rightPaddle.Position.Y + rightPaddle.Size.Height < drawingBox.Bottom)
             {
                 rightPaddle.Speed = new Point(rightPaddle.Speed.X, Math.Abs(rightPaddle.Speed.Y));
             }
