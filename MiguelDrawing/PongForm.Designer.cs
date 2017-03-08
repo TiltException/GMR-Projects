@@ -62,7 +62,6 @@
             this.Name = "PongForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.PongForm_Load);
-            this.Shown += new System.EventHandler(this.PongForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PongForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.drawingBox)).EndInit();
             this.ResumeLayout(false);

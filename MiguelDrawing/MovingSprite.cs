@@ -4,7 +4,7 @@ namespace MiguelDrawing
 {
     public class MovingSprite : Sprite
     {
-        public Point Speed { get; private set; }
+        public Point Speed { get; set; }
 
         public MovingSprite(Point position, Size size, Brush color, Point speed)
             : base(position, size, color)

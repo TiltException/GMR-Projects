@@ -18,7 +18,6 @@ namespace MiguelDrawing
         }
 
         public Point Position { get; set; }
-        public Point Speed { get; set; }
 
         #region alternativeImplementation
         //public int X
@@ -60,7 +59,30 @@ namespace MiguelDrawing
         {
             Position = position;
             Size = size;
-            Color = color;
+            if (color == null)
+            {
+                Color = Brushes.Black;
+            }
+            else
+            {
+                Color = color;
+            }
+        }
+
+        public bool isIntersectingLeftRight(Sprite sprite)
+        {
+            Rectangle leftBound = new Rectangle(sprite.Position.X, sprite.Position.Y, 0, sprite.Size.Height);
+            Rectangle rightBound = new Rectangle(sprite.Position.X + sprite.Size.Width, sprite.Position.Y, 0, sprite.Size.Height);
+
+            return HitBox.IntersectsWith(leftBound) || HitBox.IntersectsWith(rightBound);
+        }
+
+        public bool isIntersectingTopBot(Sprite sprite)
+        {
+            Rectangle topBound = new Rectangle(sprite.Position.X, sprite.Position.Y, sprite.Size.Width, 0);
+            Rectangle bottomBound = new Rectangle(sprite.Position.X, sprite.Position.Y + sprite.Size.Height, sprite.Size.Width, 0);
+
+            return HitBox.IntersectsWith(topBound) || HitBox.IntersectsWith(bottomBound);
         }
     }
 }
