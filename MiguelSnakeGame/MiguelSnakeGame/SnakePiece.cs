@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace MiguelSnakeGame
 {
+    public enum Direction
+    {
+        Up, Down, Left, Right
+    };
     public class SnakePiece
     {
-        private const int defaultSize = 50;
+        public static int defaultSize = 50;
         public System.Drawing.Point Position { get; set;}
         public System.Drawing.Size Size { get; set; }
         public System.Drawing.Brush Color { get; set; }
+        public Direction direction;
 
-        public SnakePiece(int x, int y, System.Drawing.Brush color = null)
-            :   this(new System.Drawing.Point(x,y), color)
+        public SnakePiece(int x, int y, System.Drawing.Brush color = null, Direction dir = Direction.Right)
+            :   this(new System.Drawing.Point(x,y), color, dir)
         {
         }
-        public SnakePiece(System.Drawing.Point point, System.Drawing.Brush color = null)
+        public SnakePiece(System.Drawing.Point point, System.Drawing.Brush color = null, Direction dir = Direction.Right)
         {
             Position = point;
             Size = new System.Drawing.Size(defaultSize,defaultSize);
@@ -29,8 +34,10 @@ namespace MiguelSnakeGame
             {
                 Color = color;
             }
-        }
 
+            direction = dir;
+        }
+        
         public void Draw(System.Drawing.Graphics gfx)
         {
             gfx.DrawRectangle(System.Drawing.Pens.White, Position.X, Position.Y, Size.Width, Size.Height);

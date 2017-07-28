@@ -58,7 +58,21 @@ namespace MiguelSnakeGame
 
         public void Grow()
         {
-            //TODO: Add a new piece...
+            //check the direction of the last piece on the snake
+            //  switch(dirOfLastPiece)
+            //      case Up: add below
+            //      case Down: add above
+            //      case Right: add to left
+            //      case Left: add to right
+            Point positionToAddAt;
+            switch (snake[snake.Count - 1].direction)
+            {
+                case Direction.Up:
+                    positionToAddAt = new Point(snake[snake.Count-1].Position.X, snake[snake.Count-1].Position.Y + MiguelSnakeGame.SnakePiece.defaultSize);
+                    break;
+                ca
+            }
+            snake.Add(new SnakePiece(snake[snake.Count].Position.X - SnakePiece.defaultSize, snake[snake.Count - 1].Position.Y, Brushes.Black));
         }
 
         public void Draw(Graphics gfx)
